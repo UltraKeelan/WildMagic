@@ -12,7 +12,7 @@ totaleffects = len(effects)
 @app.route("/")
 def index():
     r = int(random.randrange(0, len(effects) - 1, 1))
-    return redirect(url_for('random_effect', effectid = r), 303)
+    return redirect(r, 303)
 
 @app.route("/<int:effectid>")
 def effect_lookup(effectid):
