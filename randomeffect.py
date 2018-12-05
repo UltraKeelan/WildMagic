@@ -10,12 +10,12 @@ totaleffects = len(effects)
 
 @app.route("/")
 def index():
-    r = random.randrange(0, len(effects) - 1, 1)
-    return redirect(url_for(random_effect))
+    r = int(random.randrange(0, len(effects) - 1, 1))
+    return redirect(url_for('random_effect', effectid = r), 303)
 
-@app.route("/<effectid>")
-def random_effect(effectid):
-    return effects(effectid)
+@app.route("/<int:effectid>")
+def effect_lookup(effectid):
+    return effects[effectid]
 
 if __name__ == "__main__":
     app.run()
