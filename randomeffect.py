@@ -3,6 +3,7 @@ import random
 from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
+application = app
 
 with io.open("effects.txt", 'r', encoding='utf8') as effects_source:
     effects = effects_source.readlines()
