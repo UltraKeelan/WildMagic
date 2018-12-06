@@ -27,7 +27,7 @@ def netlibram_lookup(effectid):
     elif effectid < 0:
         return "How did you even get here?!"
     else:
-        return netlibram[effectid]
+        return render_template('nlresult.html', result=netlibram[effectid])
 
 if __name__ == "__main__":
     app.run()
