@@ -31,7 +31,8 @@ def netlibram_lookup(effectid):
     elif effectid == 0:
         return render_template('dice_error.html')
     elif effectid < 0:
-        return "How did you even get here?!"
+        # I think it might be possible to get here but I haven't figured out how yet
+        return "How did you even get here?"
     else:
         return render_template('nlresult.html', result=netlibram[effectid])
 
