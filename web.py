@@ -23,7 +23,7 @@ def netlibram_lookup(effectid):
     if effectid > netlibram_total:
         return "The maximum effect for Net Libram is %d" % netlibram_total
     elif effectid == 0:
-        return "That's not how dice work, math genius."
+        return render_template('dice_error.html')
     elif effectid < 0:
         return "How did you even get here?!"
     else:
