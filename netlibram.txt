@@ -8121,7 +8121,7 @@ A mysterious gold sarcophagus appears at the target point
 A new, non-magical, and deadly virus issues from the target point
 A one mile radius appears gloomy and blighted for 1d12 months
 A one mile radius is illuminated by full daylight for 3d10 days
-A one mile radius is rotates 360° every 24 hours
+A one mile radius is rotated 360° every 24 hours
 A one mile radius is shrouded by an eclipse for 2d8-1 days
 A one mile radius looks like a desert wasteland for one year
 A perfect 10 foot sphere of ice appears at the target point

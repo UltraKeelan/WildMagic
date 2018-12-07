@@ -18,7 +18,11 @@ netlibram_total = len(netlibram)
 def index():
     return render_template('index.html')
 
-@app.route("/netlibram")
+@app.route("/about")
+def about():
+    return render_template('about.html')
+
+@app.route("/netlibram/")
 def netlibram_start():
     r = int(random.randrange(0, len(netlibram) - 1, 1))
     return redirect("/netlibram/%d" % r, 303)
