@@ -102,3 +102,7 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# etc
+.vscode/
+passenger_wsgi.py
