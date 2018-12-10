@@ -39,7 +39,8 @@ def netlibram_lookup(effectid):
         # I think it might be possible to get here but I haven't figured out how yet
         return "How did you even get here?"
     else:
-        return render_template('nlresult.html', result=netlibram[effectid])
+        resultnum = effectid + 1 # for rendering the actual effect number in the title
+        return render_template('nlresult.html', result=netlibram[effectid], resultnum=resultnum)
 
 if __name__ == "__main__":
     app.run()

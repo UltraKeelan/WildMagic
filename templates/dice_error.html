@@ -1,20 +1,10 @@
-<!doctype html>
+{% extends "base.html" %}
 
-<html lang="en">
-<head>
-  <meta charset="utf-8">
+{% block title %}You have angered the gods{% endblock %}
 
-  <title>WildMagic Project Home</title>
-  <meta name="description" content="If you don't know what this is already, the description tag won't help you.">
-  <meta name="author" content="klang@illinois.edu">
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-  
-</head>
+{% block content %}
 
-<body>
+  <h1>You rolled a 0? I don't believe you.</h1>
+  <img src="https://media.giphy.com/media/5YqHZLeBTEmFaEEBGG/giphy.gif" alt="Floating cat head">
 
-    <h1>You rolled a 0? I don't believe you.</h1>
-    <img src="https://media.giphy.com/media/5YqHZLeBTEmFaEEBGG/giphy.gif" alt="Floating cat head">
-
-</body>
-</html>
+{% endblock %}
