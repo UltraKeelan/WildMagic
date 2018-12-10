@@ -10,11 +10,8 @@ Once you have your Python environment configured (see prerequisites), you should
 
 ### Prerequisites
 
-WildMagic runs in Python 3.x with a few extra things. I'm not going to flesh out how to configure your Python env, because many others before me have done excellent jobs. The only non-default package that I use is
+WildMagic runs in Python 3.x with a few extra things. I'm not going to flesh out how to configure your Python env, because many others before me have done excellent jobs. The only non-default package that I use is `flask`.
 
-```
-flask
-```
 Flask ships with Jinja2, which I make use of to prettify the page.
 
 ### Installing
@@ -22,7 +19,7 @@ Flask ships with Jinja2, which I make use of to prettify the page.
 If your Python env is configured with Flask, you should be able to clone and then run the following:
 
 ```
-python web.py
+> python web.py
 ```
 The console will display some helpful info about how to connect to the server from a browser, some fun warnings, as well as the requests that it's serving.
 
