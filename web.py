@@ -24,17 +24,18 @@ def about():
 
 @app.route("/netlibram/")
 def netlibram_start():
-    r = int(random.randrange(0, len(netlibram) - 1, 1))
+    r = int(random.randrange(1, len(netlibram), 1))
     return redirect("/netlibram/%d" % r, 303)
 
 @app.route("/netlibram/<int:effectid>")
 def netlibram_lookup(effectid):
-    if effectid > netlibram_total:
-        nl_max_exceeded = "The maximum effect for Net Libram is {:,}!".format(netlibram_total)
+    effectid -= 1 # A dirty way to fix the indexing (I think lol)
+    if effectid >= netlibram_total:
+        nl_max_exceeded = "The maximum effect for the Net Libram is {:,}!".format(netlibram_total)
         return render_template('nlresult.html', result=nl_max_exceeded)
-    elif effectid == 0:
+    elif effectid == -1:
         return render_template('dice_error.html')
-    elif effectid < 0:
+    elif effectid < -1:
         # I think it might be possible to get here but I haven't figured out how yet
         return "How did you even get here?"
     else:
