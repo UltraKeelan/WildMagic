@@ -6,20 +6,20 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   
-  <title>{% block title %}{% endblock %} - Wild Magic</title>
-  {% endblock %}
+  <title>{% block title %}{% endblock title %} - Wild Magic</title>
+  {% endblock head %}
 
   <meta name="description" content="A random spell effect generator inspired by the Net Libram.">
   <meta name="author" content="Keelan Lang"> 
 </head>
 
   <body>
-    <div id="content">{% block content %}{% endblock %}</div>
+    <div id="content">{% block content %}{% endblock content %}</div>
 
     <div class="footer">
       {% block footer %}
-        <a href="https://github.com/klang-uofi/WildMagic#wildmagic">About this Project</a> | <a href="https://github.com/klang-uofi/WildMagic/issues">Report an Issue</a> | &copy; Copyright 2018 Keelan Lang
-      {% endblock %}
+        <a href="https://github.com/klang-uofi/WildMagic#wildmagic">About this Project</a> | <a href="https://github.com/klang-uofi/WildMagic/issues">Report an Issue</a><br> &copy; Copyright 2018 Keelan Lang
+      {% endblock footer %}
     </div>
   </body>
 </html>
