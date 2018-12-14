@@ -48,4 +48,4 @@ This project is licensed under the GNU GPL - see the [LICENSE.md](LICENSE.md) fi
 * Orrex, for creating the [Net Libram](https://centralia.aquest.com/downloads/NLRMEv2.pdf)
 * Wizards of the Coast for publishing 5E
 * Stu, for being a kind enough DM to let me use the Net Libram as a 
-* [Braxton](https://github.com/heptahedron) and Kyle for helping me think through this and turning me around when I started sprinting in the wrong directions.
+* [Braxton](https://github.com/heptahedron) and [Kyle](https://github.com/kamitch2) for helping me think through this and turning me around when I started sprinting in the wrong directions.
