@@ -23,17 +23,17 @@ If your Python env is configured with Flask, you should be able to clone and the
 ```
 The console will display some helpful info about how to connect to the server from a browser, some fun warnings, as well as the requests that it's serving.
 
-## Deployment
-My deployment flow for WildMagic is a bit ugly, since cPanel doesn't like a git repo and an app directory existing in the same folder. I tried to fool it with some symlink wizardry, but nothing worked. In any case, the only notable deviation from my flow and a standard Flask application is that, because cPanel uses Phusion Passenger, I have to set `application = app` in web.py, and then include `from web import application` as the only line in passenger_wsgi.py. For deploying on other platforms, see [Flask Deployment Options](http://flask.pocoo.org/docs/1.0/deploying/)
+If you are deploying using cPanel and Phusion Passenger, you must set `application = app` in web.py, and then include `from web import application` as the only line in passenger_wsgi.py. For deploying on other platforms, see [Flask Deployment Options](http://flask.pocoo.org/docs/1.0/deploying/).
 
 ## Built With
 
 * [Flask](http://flask.pocoo.org/) - The microframework used
-* [web.illinois.edu](https://web.illinois.edu/) - cPanel hosting
+* [Jinja2](http://jinja.pocoo.org/) - HTML templating framework bundled with Flask
+* [web.illinois.edu](https://web.illinois.edu/) - cPanel hosting 
 
 ## Contributing
 
-If you notice any bugs or odd behavior, or have a feature request, feel free to start an issue or submit a pull request.
+If you notice any bugs, text errors, or unexpected behavior, or if you have a feature request, feel free to start an issue or submit a pull request.
 
 ## Authors
 
