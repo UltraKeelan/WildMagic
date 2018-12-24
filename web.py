@@ -14,16 +14,28 @@ def import_effects(effectlist):
 nlsource = "nltable.txt"
 wmsource = "wmtable.txt"
 
-nl = import_effects(nlsource)   
-nltotal = len(nl)
-
+nl = import_effects(nlsource)
 wm = import_effects(wmsource)
-wmtotal = len(wm)
 
-# TODO: Abstract all the checking logic below into a single function that will
-# return a... string? something? not sure.
-def effect_lookup(table, id):
-    return table[id]
+# Checks validity of inputs, and then returns a rendered template
+# (or possibly a string)
+def effect_lookup(table, tablename, id):
+    tablelength = len(table)
+    id -= 1
+    if id >= tablelength:
+        # If you know of a better way to do this string, please
+        # for the love of god submit a pull request
+        return ("The maximum length for the %s table is {:,}!".format(tablelength) % tablename)
+    elif id == -1:
+        # This will happen if they pass a 0
+        # Grrrr this will break things I think...
+        return "That's not how dice work!"
+    elif id < -1:
+        # I haven't figured out if this is possible, but there may
+        # be a way for 
+        return "How did you even get here?"
+    else:
+        return table[id]
 
 # Most of the below is self explanatory for anyone familiar with Flask. I get
 # a little funky in places, but for the most part it's all pretty human
@@ -44,18 +56,18 @@ def netlibram_start():
 
 @app.route("/netlibram/<int:effectid>")
 def netlibram_lookup(effectid):
-    effectid -= 1 # A dirty way to fix the indexing (I think lol)
-    if effectid >= nltotal:
-        nl_max_exceeded = "The maximum effect for the Net Libram is {:,}!".format(nltotal)
-        return render_template('nlresult.html', result=nl_max_exceeded)
-    elif effectid == -1:
-        return render_template('dice_error.html')
-    elif effectid < -1:
-        # I think it might be possible to get here but I haven't figured out how yet
-        return "How did you even get here?"
-    else:
-        resultnum = effectid + 1 # for rendering the actual effect number in the title
-        return render_template('nlresult.html', result=nl[effectid], resultnum=resultnum)
+    result = effect_lookup(nl, "Net Libram", effectid)
+    return render_template('nlresult.html', result=result, resultnum=effectid)
+
+@app.route("/wildmagic/")
+def wm_start():
+    r = int(random.randrange(1, len(nl), 1))
+    return redirect("/wildmagic/%d" % r, 303)
+
+@app.route("/wildmagic/<int:effectid>")
+def wm_lookup(effectid):
+    result = effect_lookup(wm, "Wild Magic", effectid)
+    return render_template('wmresult.html', result=result, resultnum=effectid)
 
 if __name__ == "__main__":
     app.run()
