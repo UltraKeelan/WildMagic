@@ -5,10 +5,21 @@ from flask import Flask, render_template, request, redirect, url_for
 app = Flask(__name__)
 application = app # this is for Passenger, which expects application
 
-# I was running into encoding errors when using regular ol' open so I used io's
-with io.open("netlibram.txt", 'r', encoding='utf8') as netlibram_source:
-    netlibram = netlibram_source.readlines()
-netlibram_total = len(netlibram)
+# This will import any newline-delimited effects files passed to it as a text file
+def import_effects(effectlist):
+    # I was running into encoding errors when using regular ol' open so I used io's
+    with io.open(effectlist, 'r', encoding='utf8') as effects:
+        return effects.readlines()
+
+nlsource = "nlsource.txt"
+wmsource = "wmsource.txt"
+
+nl = import_effects(nlsource)   
+nltotal = len(nl)
+
+wm = import_effects(wmsource)
+wmtotal = len(wm)
+
 
 # Most of the below is self explanatory for anyone familiar with Flask. I get
 # a little funky in places, but for the most part it's all pretty human
@@ -24,14 +35,14 @@ def about():
 
 @app.route("/netlibram/")
 def netlibram_start():
-    r = int(random.randrange(1, len(netlibram), 1))
+    r = int(random.randrange(1, len(nl), 1))
     return redirect("/netlibram/%d" % r, 303)
 
 @app.route("/netlibram/<int:effectid>")
 def netlibram_lookup(effectid):
     effectid -= 1 # A dirty way to fix the indexing (I think lol)
-    if effectid >= netlibram_total:
-        nl_max_exceeded = "The maximum effect for the Net Libram is {:,}!".format(netlibram_total)
+    if effectid >= nltotal:
+        nl_max_exceeded = "The maximum effect for the Net Libram is {:,}!".format(nltotal)
         return render_template('nlresult.html', result=nl_max_exceeded)
     elif effectid == -1:
         return render_template('dice_error.html')
@@ -40,7 +51,7 @@ def netlibram_lookup(effectid):
         return "How did you even get here?"
     else:
         resultnum = effectid + 1 # for rendering the actual effect number in the title
-        return render_template('nlresult.html', result=netlibram[effectid], resultnum=resultnum)
+        return render_template('nlresult.html', result=nl[effectid], resultnum=resultnum)
 
 if __name__ == "__main__":
     app.run()
