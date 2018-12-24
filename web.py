@@ -11,8 +11,8 @@ def import_effects(effectlist):
     with io.open(effectlist, 'r', encoding='utf8') as effects:
         return effects.readlines()
 
-nlsource = "nlsource.txt"
-wmsource = "wmsource.txt"
+nlsource = "nltable.txt"
+wmsource = "wmtable.txt"
 
 nl = import_effects(nlsource)   
 nltotal = len(nl)
@@ -20,6 +20,10 @@ nltotal = len(nl)
 wm = import_effects(wmsource)
 wmtotal = len(wm)
 
+# TODO: Abstract all the checking logic below into a single function that will
+# return a... string? something? not sure.
+def effect_lookup(table, id):
+    return table[id]
 
 # Most of the below is self explanatory for anyone familiar with Flask. I get
 # a little funky in places, but for the most part it's all pretty human
