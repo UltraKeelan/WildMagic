@@ -28,14 +28,24 @@ a {
 }
 
 a.button {
-    display: block;
+    font-size: 32pt;
+    font-weight: bold;
+    display: inline-block;
     padding: 15px;
-    margin-left: 35%;
-    margin-right: 35%;
+    /* margin-left: 35%;
+    margin-right: 35%; */
     border-radius: 7px;
     background-color: #9cc5a1;
     color: #40434e;
     text-decoration: none;
+}
+
+a.button + a.button {
+    margin-left: 30px;
+}
+
+.center {
+    text-align: center;
 }
 
 img {
