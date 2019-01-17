@@ -1,0 +1,7 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/wildmagic/wildmagic
+    - /bin/cp -r static $DEPLOYPATH
+    - /bin/cp -r templates $DEPLOYPATH
+    - /bin/cp web.py $DEPLOYPATH
