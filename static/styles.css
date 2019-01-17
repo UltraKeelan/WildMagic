@@ -25,6 +25,16 @@ a {
     text-align: center;
     color: #9cc5a1;
 }
+a.button {
+    display: block;
+    padding: 20px;
+    margin-left: 35%;
+    margin-right: 35%;
+    border-radius: 7px;
+    background-color: #9cc5a1;
+    color: #40434e;
+    text-decoration: none;
+}
 
 img {
     display: block;

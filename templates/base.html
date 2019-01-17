@@ -7,10 +7,11 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   
   <title>{% block title %}{% endblock title %} - Wild Magic</title>
-  {% endblock head %}
 
   <meta name="description" content="A random spell effect generator inspired by the Net Libram.">
-  <meta name="author" content="Keelan Lang"> 
+  <meta name="author" content="Keelan Lang">
+  {% endblock head %}
+
 </head>
 
   <body>
